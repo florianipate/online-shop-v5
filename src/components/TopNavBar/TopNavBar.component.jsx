@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import Logo from '../Logo/Logo,comonent';
+import DropdownMenu from '../DropdownMenu/DropdownMenu.component';
 //import MenuButton from '../MenuButton/MenuButton.component';
 
 const TopNavBar = () =>{
     const [click, setClick] = useState(false);
     const handleClick =() => setClick(!click);
+    const closeMobileMenu = () => setClick(false);
+    const [dropdown, setDropdown] = useState(false);
     return(
         <>
         <Logo />
@@ -14,9 +17,20 @@ const TopNavBar = () =>{
         </div>
         <ul className={click ? 'nam-menu active' : 'nav-menu'}>
             <li className='nav-item'>
-                <link to = '/' className='nav-links' onClick={closeMobileMenu}>
+                <Link to = '/' className='nav-links' onClick={closeMobileMenu}>
                     Home
-                </link>
+                </Link>
+            </li>
+            <li className='nav-item'>
+                <Link to = '/services' className='nav-links' onClick={closeMobileMenu}>
+                    Services <i className='fas fa-caret-down' />
+                    {dropdown && <DropdownMenu />}
+                </Link>
+            </li>
+            <li className='nav-item'>
+                <Link to = '/contact-us' className='nav-links' onClick={closeMobileMenu}>
+                    Contact Us
+                </Link>
             </li>
         </ul>
         </>
