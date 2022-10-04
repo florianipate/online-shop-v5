@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import Logo from '../Logo/Logo,comonent';
 import DropdownMenu from '../DropdownMenu/DropdownMenu.component';
+import './TopNavBar.style.css';
 //import MenuButton from '../MenuButton/MenuButton.component';
 
 const TopNavBar = () =>{
@@ -9,8 +10,17 @@ const TopNavBar = () =>{
     const handleClick =() => setClick(!click);
     const closeMobileMenu = () => setClick(false);
     const [dropdown, setDropdown] = useState(false);
+
+    const onMouseEnter = () =>{
+        if(window.innerWidth < 960) {
+            setDropdown(false);
+
+        } else{
+            setDropdown(true);
+        }
+    }
     return(
-        <>
+        <nav className='navbar'>
         <Logo />
         <div onClick={handleClick}>
             <i className= {click ? 'fas fa-times' : 'fas fa-bars'} />
@@ -33,7 +43,7 @@ const TopNavBar = () =>{
                 </Link>
             </li>
         </ul>
-        </>
+        </nav>
     )
 }
 
