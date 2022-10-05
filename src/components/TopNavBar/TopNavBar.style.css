@@ -37,12 +37,18 @@
     align-items: center;
     height: 80px;
   }
+  .nav-item i{
+    color:#fff;
+    margin-left: -20px;
+    transform: rotate(-0.25turn);
+  }
   
   .nav-links {
     color: white;
     text-decoration: none;
     padding: 0.5rem 1rem;
   }
+
   
   .nav-links:hover {
     background-color: #1888ff;
@@ -144,4 +150,12 @@
       display: none;
     }
   }
-  
+  .have-submenu{
+    padding-right: 26px;
+  }
+  @media(min-width:960px) {
+    .nav-item i{
+        transform: rotate(0);
+    }
+    
+  }
